@@ -1,0 +1,40 @@
+<div id="CountMsg" class="HotDate">
+    和琪琪在一起已经
+    <span id="t_d"> 天</span>
+    <span id="t_h"> 时</span>
+    <span id="t_m"> 分</span>
+    <span id="t_s"> 秒</span>
+</div>
+<script type="text/javascript">
+    function getRTime() {
+        var EndTime = new Date('2022/03/08 18:00:00');
+        var NowTime = new Date();
+        var t = NowTime.getTime() - EndTime.getTime();
+        var d = Math.floor(t / 1000 / 60 / 60 / 24);
+        var h = Math.floor(t / 1000 / 60 / 60 % 24);
+        var m = Math.floor(t / 1000 / 60 % 60);
+        var s = Math.floor(t / 1000 % 60);
+        var day = document.getElementById("t_d");
+        if (day != null) { day.innerHTML = d + " 天"; }
+        var hour = document.getElementById("t_h");
+        if (hour != null) { hour.innerHTML = h + " 时"; }
+        var min = document.getElementById("t_m");
+        if (min != null) { min.innerHTML = m + " 分"; }
+        var sec = document.getElementById("t_s");
+        if (sec != null) { sec.innerHTML = s + " 秒"; }
+    }
+    setInterval(getRTime, 1000);      
+</script>
+
+<span class="text-ellipsis">
+    Copyright&nbsp;&copy;&nbsp;<?php echo date("Y"); ?>
+    &nbsp;
+    <?php $this->options->BottomleftInfo(); ?>
+    &nbsp;&nbsp;和琪琪在一起已经
+    <?php
+        $startdate=strtotime("2022-3-08");
+        $enddate=time();
+        $days=round(($enddate-$startdate)/3600/24) ;
+        echo $days;
+    ?> 天
+</span>
