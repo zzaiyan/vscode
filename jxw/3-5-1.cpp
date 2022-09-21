@@ -87,11 +87,75 @@ long long Fib1(int n) {
 
 int main() {
   int n;
+  long long v = 0, cnt = 0;
   cin >> n;
   for (int i = 1; i <= n; i++) {
     FibCnt = 0;
-    init();
-    cout << "i = " << i << ": " << Fib1(i) << " " << FibCnt << endl;
+    // init();
+    cout << "i = " << i << ": " << (v = Fib(i)) << "\t" << FibCnt << "\t"
+         << (cnt += v) << endl;
   }
   return 0;
 }
+
+// Node* reverse(Node* head) {
+//   Node *prev = nullptr, *cur = head;
+//   while (cur) {
+//     Node* next = cur->next;
+//     cur->next = prev;
+//     prev = cur, cur = next;
+//   }
+//   return prev;
+// }
+
+// template <class T>
+// bool SeqList<T>::Insert(int i, T& x) {
+//   //将新元素x插入到表中第 i(0≤i≤last+1)个表项之后
+//   if (last == maxSize - 1)
+//     return false;  //表满
+//   if (i < 0 || i > last + 1)
+//     return false;                  //参数i不合理
+//   for (int j = last; j >= i; j--)  //依次后移
+//     data[j + 1] = data[j];
+//   data[i] = x;  //插入(第 i 表项在data[i-1]处)
+//   last++;
+//   return true;  //插入成功
+// }
+
+// template <class T>
+// bool SeqList<T>::Reserve(int r) {
+//   if (r < last)
+//     return false;
+//   T* newSpace = new T[r];
+//   for (int i = first; i != last; i++)
+//     newSpace[i] = data[i];
+//   delete[] data;
+//   data = newSpace, maxSize = r;
+//   return true;
+// }
+
+// template <class T>
+// bool SeqList<T>::Insert(int i, T& x) {
+//   //将新元素x插入到表中第i (0≤i≤last+1) 个表项之后
+//   if (last == maxSize - 1)
+//     if (!Reserve(last << 1))
+//       return false;
+//   if (i < 0 || i > last + 1)
+//     return false;                  //参数i不合理
+//   for (int j = last; j >= i; j--)  //依次后移
+//     data[j + 1] = data[j];
+//   data[i] = x;  //插入(第 i 表项在data[i-1]处)
+//   last++;
+//   return true;  //插入成功
+// }
+
+// template <typename T>
+// void SeqList<T>::remove(const T& x) {  //删除值等于x的所有元素
+//   int cnt = 0;
+//   for (int i = 0; i < size; i++) {
+//     if (data[i] == x)
+//       cnt++, size--;  //当前元素为x时k增1
+//     else
+//       data[i - cnt] = data[i];  //当前元素不为x时将其前移k个位置
+//   }
+// }
