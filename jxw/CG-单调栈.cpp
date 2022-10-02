@@ -12,20 +12,17 @@ long Fibnacci(long n) {
 
   do {
     do {
-      w.n = n;
-      w.tag = 1;
+      // w = {n, 1};
+      w.n = n, w.tag = 1;
       s.push(w);
-      n--;
-    } while (n >= 0);
+    } while (--n >= 0);
 
     while (s.size()) {
       w = s.top();
       s.pop();
-      if (w.n == 0)
-        sum += 0;
-      else if (w.n == 1)
-        sum += 1;
-      else if (w.n != 0 && w.n != 1 && w.tag == 1) {
+      if (w.n <= 1)
+        sum += w.n;
+      else if (w.tag == 1) {
         w.tag = 2;
         s.push(w);
         n = w.n - 2;
