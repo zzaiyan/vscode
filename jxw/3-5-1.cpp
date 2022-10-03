@@ -62,10 +62,9 @@ long long Fib2(int n) {
   if (n <= 1)
     return n;
   long long a = 0, b = 1, c;
-  for (int i = 2; i <= n; i++) {
-    c = a + b;
-    a = b, b = c;
-  }
+  // for (int i = 2; i <= n; i++)
+  while (--n)
+    c = a + b, a = b, b = c;
   return c;
 }
 
@@ -92,8 +91,9 @@ int main() {
   for (int i = 1; i <= n; i++) {
     FibCnt = 0;
     // init();
-    cout << "i = " << i << ": " << (v = Fib(i)) << "\t" << FibCnt << "\t"
-         << (cnt += v) << endl;
+    // cout << "i = " << i << ": " << (v = Fib(i)) << "\t" << FibCnt << "\t"
+    //      << (cnt += v) << endl;
+    cout << Fib2(i) << endl;
   }
   return 0;
 }
