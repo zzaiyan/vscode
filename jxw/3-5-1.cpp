@@ -159,3 +159,67 @@ int main() {
 //       data[i - cnt] = data[i];  //当前元素不为x时将其前移k个位置
 //   }
 // }
+
+int DFS_PostOrder(BinTree* T) {
+  if (!T)
+    return 0;  //树空，高度为0
+  Stack<BinNode*> stk;
+  BinTree *p = T, *r = nullptr;  // r为后序遍历时的辅助指针
+  int num = 0, max = 0;  // num用来跟随程序实时记录层数，max用来记录最大值
+  while (p || !stk.empty()) {  //以下为后序遍历略作修改
+    while (p) {                //该结点入栈并搜索其左孩子
+      stk.push(p);
+      num++;
+      if (num > max)
+        max = num;
+      p = p->lChild;
+    }
+    p = stk.top();
+    if (p->rChild && p->rChild != r)
+      p = p->rChild;  //如果右孩子存在并还没访问，则访问
+    else {
+      p = stk.pop();
+      num--;  //出栈则层数减1
+      r = p;  // r指向上一个访问节点
+      p = nullptr;
+    }
+  }
+
+  ruturn max;  //返回最大高度
+}
+
+template <class T>
+struct stkNode {
+  int height = -1;
+  BinNode<T>* ptr;                                   //树结点指针
+  enum tag { L, R };                                 //退栈标记
+  stkNode(BinNode<T>* N = NULL) : ptr(N), tag(L) {}  //构造函数
+};
+
+template <class T>
+void BinTree<T>::getHeight() {
+  Stack<stkNode<T>> S;
+  stkNode<T> w;
+  BinNode<T>* p = root;  // p是遍历指针
+  int height = 0;
+  do {
+    while (p) {
+      w.ptr = p, w.tag = L;
+      S.push(w);
+      p = p->lChild;
+      height = std::max(height, S.size());
+    }
+    int continue1 = 1;  //继续循环标记, 用于R
+    while (continue1 && !S.empty()) {
+      w = S.pop();
+      p = w.ptr;
+      if (w.tag == L) {  //判断栈顶的tag标记
+        w.tag = R;
+        S.push(w);
+        continue1 = 0;
+        p = p->rChild;
+      }
+    }
+  } while (!S.empty());  //继续遍历其他结点
+  return height;
+}

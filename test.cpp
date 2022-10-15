@@ -6,8 +6,8 @@ int main() {
   int v = __cplusplus;
   printf("std = c++%d%d\n", v / 1000 % 10, v / 100 % 10);
   cout << v << endl;
-  for (int i = 0; i < 10; i++) {
-    cout << "(str[i*10 + " << i + 1 << "] - '0') * ";
+  for (int i = 0; i < 8; i++) {
+    cout << "(str[i*8 + " << 8 - (i) << "] - '0') * ";
     cout << (1 << i);
     cout << " + ";
   }

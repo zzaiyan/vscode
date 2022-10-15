@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
-                // "-std=c++23",
+                "-std=c++2b",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
