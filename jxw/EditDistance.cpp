@@ -2,12 +2,9 @@
 using namespace std;
 
 int leastEdit(string string1, string string2) {
-#define max(a, b) ((a) >= (b) ? (a) : (b))
-#define min(a, b) ((a) <= (b) ? (a) : (b))
-
   int m = string1.size(), n = string2.size();
   // vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-  int** dp = new int*[m + 1];
+  int **dp = new int *[m + 1];
   for (int i = 0; i <= m; i++)
     dp[i] = new int[n + 1];
 
