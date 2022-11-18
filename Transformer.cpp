@@ -23,11 +23,11 @@ string formate(long double origin, int src, int tar) {
   // cout<<"a="<<a<<endl;
   static char str[100] = {
       "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/"};
-  string result = "";  // ⽤于储存结果字符串
+  string result = ""; // ⽤于储存结果字符串
   try {
     if (tar <= 1 || tar > 64)
-      throw "进制错误";  //由于最⼤⽀持64进制，并且排除0等错误进制
-    int c = 0;           //⽤于储存余数
+      throw "进制错误"; //由于最⼤⽀持64进制，并且排除0等错误进制
+    int c = 0;          //⽤于储存余数
     int n = (int)a;
     do {
       c = n % tar;
@@ -37,7 +37,7 @@ string formate(long double origin, int src, int tar) {
     if (!(a - (int)a))
       return result;
     result = result + '.';
-    int clock = 0;  //防⽌⽆限循环
+    int clock = 0; //防⽌⽆限循环
     do {
       if (clock >= 10)
         return result;
@@ -47,7 +47,7 @@ string formate(long double origin, int src, int tar) {
       result += str[n];
       clock++;
     } while (a);
-    return result.substr(0, result.length() - 1);  //去除多余的⼀位
+    return result.substr(0, result.length() - 1); //去除多余的⼀位
   } catch (...) {
     return "进制错误";
   }

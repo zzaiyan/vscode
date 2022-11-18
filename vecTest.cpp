@@ -2,14 +2,13 @@
 #include <vector>
 using namespace std;
 
-template <typename T>
-class Stack : public std::vector<T> {
- public:
-  void push(T&& e) {
+template <typename T> class Stack : public std::vector<T> {
+public:
+  void push(T &&e) {
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~&& push.\n";
     std::vector<T>::emplace_back(std::forward<T>(e));
   }
-  const T& pop() {
+  const T &pop() {
     T temp = std::vector<T>::operator[](std::vector<T>::size() - 1);
     std::vector<T>::pop_back();
     return temp;
@@ -19,7 +18,7 @@ class Stack : public std::vector<T> {
 int cnt = 0;
 
 class Test {
- public:
+public:
   int val;
 
   ~Test() { cout << "----------------desruction, val = " << val << endl; }
@@ -29,18 +28,18 @@ class Test {
     cout << "val = " << val << endl;
   }
 
-  Test(const int& e) : val(e) {
+  Test(const int &e) : val(e) {
     cout << "common construct with ";
     cout << "val = " << val << endl;
   }
 
-  Test(const Test& T) : val(T.val) {
+  Test(const Test &T) : val(T.val) {
     cout << "& copy consruct with ";
     cout << "val = " << val << endl;
     cout << "copy time: " << ++cnt << endl;
   }
 
-  Test(Test&& T) noexcept : val(T.val) {
+  Test(Test &&T) noexcept : val(T.val) {
     cout << "&& move consruct with ";
     cout << "val = " << val << endl;
   }
