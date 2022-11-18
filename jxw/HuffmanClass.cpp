@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
 #include <string>
 
 constexpr int MAXBIT = 10;
@@ -24,10 +24,10 @@ struct HNodeType {
 class HuffmanTree {
   HNodeType HuffNode[MAXNODE];
   HCodeType HuffCode[MAXLEAF];
-  int n = 10;  // 字典长度
+  int n = 10; // 字典长度
   string buf;
 
- public:
+public:
   HuffmanTree() { cout << sizeof(HuffNode) << endl; }
 
   void coding(string str) {
@@ -102,7 +102,7 @@ class HuffmanTree {
     int Num = MAXLEAF;
     int m = MAXNODE;
 
-    char* nump;
+    char *nump;
     char num[1024];
     for (i = 0; i < str.size(); i++) {
       if (str[i] == '0')
@@ -123,7 +123,7 @@ class HuffmanTree {
         i++;
       }
       printf("%c", HuffNode[tmp].value);
-    }  // 13875765918
+    } // 13875765918
   }
 
   void printMatrix() {

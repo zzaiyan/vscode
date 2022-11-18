@@ -3,20 +3,20 @@ using namespace std;
 
 struct Node {
   int data;
-  Node* next;
+  Node *next;
 };
 
-void show(Node* first) {
+void show(Node *first) {
   for (auto p = first; p != nullptr; p = p->next)
     cout << p->data << ' ';
   cout << endl;
 }
 
-Node* reverse(Node* head) {
+Node *reverse(Node *head) {
   // 递归出口
   if (head->next == nullptr)
     return head;
-  Node* last = reverse(head->next);
+  Node *last = reverse(head->next);
   head->next->next = head;
   head->next = nullptr;
   return last;

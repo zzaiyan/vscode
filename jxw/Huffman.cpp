@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
 #include <string>
 
 #define MAXBIT 100
@@ -28,12 +28,12 @@ void HuffmanTree(HNodeType HuffNode[MAXNODE], int n) {
   int i, j, m1, m2, x1, x2;
   /* 初始化存放哈夫曼树数组 HuffNode[] 中的结点 */
   for (i = 0; i < 2 * n - 1; i++) {
-    HuffNode[i].weight = 0;  //权值
+    HuffNode[i].weight = 0; //权值
     HuffNode[i].parent = -1;
     HuffNode[i].lChild = -1;
     HuffNode[i].rChild = -1;
-    HuffNode[i].value = ' ';  //实际值，可根据情况替换为字母
-  }                           /* end for */
+    HuffNode[i].value = ' '; //实际值，可根据情况替换为字母
+  }                          /* end for */
 
   /* 输入 n 个叶子结点的权值 */
   for (i = 0; i < n; i++) {
@@ -83,7 +83,7 @@ void HuffmanTree(HNodeType HuffNode[MAXNODE], int n) {
 void decodeing(char string[], HNodeType Buf[], int Num) {
   int i, tmp = 0;
   int m = 2 * Num - 1;
-  char* nump;
+  char *nump;
   char num[1024];
   for (i = 0; i < strlen(string); i++) {
     if (string[i] == '0')
@@ -104,7 +104,7 @@ void decodeing(char string[], HNodeType Buf[], int Num) {
       nump++;
     }
     printf("%c", Buf[tmp].value);
-  }  // 13875765918
+  } // 13875765918
 }
 
 int main(void) {

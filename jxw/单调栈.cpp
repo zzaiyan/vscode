@@ -3,7 +3,7 @@ using namespace std;
 using Stack = stack<int>;
 
 class MonoStack : public Stack {
- public:
+public:
   void push(int x) {
     while (size() && top() >= x)
       pop();
@@ -13,7 +13,7 @@ class MonoStack : public Stack {
 
 using List = deque<int>;
 class MonoQueue : public List {
- public:
+public:
   void push(int x) {
     while (size() && back() >= x)
       List::pop_back();
