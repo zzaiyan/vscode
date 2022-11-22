@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main() {
@@ -7,12 +7,5 @@ int main() {
   printf("std = c++%d%d\n", v / 1000 % 10, v / 100 % 10);
   cout << v << endl;
 
-  string line, out;
-  while (getline(cin, line)) {
-    if (line == "end")
-      break;
-    out.append("\"" + line + "\"\n");
-  }
-  cout << "\n" << out << "\n";
   return 0;
 }
