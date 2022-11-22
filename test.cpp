@@ -9,10 +9,9 @@ int main() {
 
   string line, out;
   while (getline(cin, line)) {
-    if (line != "end")
-      out.append("\"" + line + "\"\n");
-    else
+    if (line == "end")
       break;
+    out.append("\"" + line + "\"\n");
   }
   cout << "\n" << out << "\n";
   return 0;
