@@ -2,27 +2,26 @@
 using namespace std;
 
 int vNum;
-int *inDegree;
 queue<int> que;
 queue<int> ans;
 
 bool TopoSort(string G) {
-  int cnt = 0;
-  int inDegree[G.vexNum];
-  for (int i = 1; i <= G.vexNum; i++) { //将整个图中的入度为零的节点放入队列
-    if (inDegree[i] == 0) {
+  int cnt = 0;         //顶点计数
+  queue<int> que, ans; // 工作队列，结果队列
+  for (int i = 1; i <= G.vexNum; i++) {
+    //将整个图中的入度为零的节点放入队列
+    if (inDegree[i] == 0)
       que.push(i);
-    }
   }
-  while (!que.empty()) {
+  while (!que.empty()) { //若队列非空
     int now = que.front();
     ans.push(now), que.pop();
-    for (int i = 0; i < G[now].size(); i++) {
-      int v = G[now][i];
+    for (auto p = G.vex[now].adj; p; p = p->next) {
+      // 遍历邻接顶点
+      int v = p->adjVex;
       inDegree[v]--;
-      if (inDegree[v] == 0) { // 再次将入度为零的点放入队列
+      if (inDegree[v] == 0) //将入度为零的点放入队列
         que.push(v);
-      }
     }
   }
   if (cnt == G.vexNum)
