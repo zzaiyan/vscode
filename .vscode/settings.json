@@ -105,6 +105,7 @@
         "filesystem": "cpp",
         "spanstream": "cpp",
         "stacktrace": "cpp",
-        "version": "cpp"
+        "version": "cpp",
+        "format": "cpp"
     }
 }
