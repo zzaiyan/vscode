@@ -4,7 +4,8 @@ using namespace std;
 int arr[1000005];
 
 template <class T> void quicksort(T *a, int l, int r) {
-  // if(l>=r)return;
+  if (l >= r)
+    return;
   int x = a[l + r >> 1], i = l, j = r;
   do {
     while (a[i] < x)
@@ -14,10 +15,8 @@ template <class T> void quicksort(T *a, int l, int r) {
     if (i <= j)
       swap(a[i++], a[j--]);
   } while (i <= j);
-  if (l < j)
-    quicksort(a, l, j);
-  if (i < r)
-    quicksort(a, i, r);
+  quicksort(a, l, j);
+  quicksort(a, i, r);
 }
 
 int main() {
