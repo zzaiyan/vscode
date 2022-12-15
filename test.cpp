@@ -8,15 +8,16 @@ int main() {
   cout << v << endl;
 
   string inBuf;
-  
+
   set<string> st;
-  while(cin>>    inBuf) { 
-    if(inBuf.size()<=1)break;
+  while (cin >> inBuf) {
+    if (inBuf.size() <= 1)
+      break;
     st.insert(inBuf);
   }
   int cnt = 0;
-  for(auto i:st) {
-    cout<<i<<", "<<cnt++<<endl;
+  for (auto i : st) {
+    cout << i << ", " << cnt++ << endl;
   }
 
   return 0;
