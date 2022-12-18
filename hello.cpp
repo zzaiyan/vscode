@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int cnt = 0;
-
 void move(int n, char a = 'A', char b = 'B', char c = 'C') {
+  static int cnt = 0;
   if (n == 1) // 当圆盘数为1时，直接从a移动到b
   {
     cout << ++cnt << " :  ";
