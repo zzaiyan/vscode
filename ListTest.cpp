@@ -31,7 +31,7 @@ int main() {
   list<MyInt> L;
 
   while (n--)
-    L.push_back(MyInt{rand() % 100 + 1});
+    L.push_back({rand() % 100 + 1});
 
   show(L);
 
